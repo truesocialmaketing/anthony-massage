@@ -25,12 +25,12 @@ export const HOME_EXPERIENCE_HERO_FRAMES_ISO = [
   "/images/hero/frame1-iso.jpg",
   "/images/hero/frame2-iso.jpg",
   "/images/hero/frame3-iso.jpg",
-  "/images/hero/frame4-iso.jpg",
+  "/images/hero/frame4-spill-1.png",
 ];
 
 export const HOME_EXPERIENCE_HERO_FRAMES_SPILL = [
   "/images/hero/frame1-spill.jpg",
   "/images/hero/frame2-spill.jpg",
   "/images/hero/frame3-spill.jpg",
-  "/images/hero/frame4-spill.jpg",
+  "/images/hero/frame4-spill-1.png",
 ];
