@@ -474,9 +474,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     opacity: 1;
   }
 
+  /* Exact 9-stop color spine ported from the reference site (positions
+     1-8 are the story chapters; 9 is the footer's fully-lit stop). */
   .exp-pos-1 {
     --s-pre: #242018;
-    --s-post: #2b271e;
+    --s-post: #312b21;
     --s-heading: #efd9a0;
     --s-body: #e8dec4;
     --s-eyebrow: #e3c98c;
@@ -487,8 +489,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     --s-rule-lit: rgba(227, 201, 140, 0.4);
   }
   .exp-pos-2 {
-    --s-pre: #2b271e;
-    --s-post: #332e23;
+    --s-pre: #312b21;
+    --s-post: #352d23;
     --s-heading: #efd9a0;
     --s-body: #e8dec4;
     --s-eyebrow: #e3c98c;
@@ -499,8 +501,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     --s-rule-lit: rgba(227, 201, 140, 0.4);
   }
   .exp-pos-3 {
-    --s-pre: #332e23;
-    --s-post: #3a3629;
+    --s-pre: #352d23;
+    --s-post: #383026;
     --s-heading: #efd9a0;
     --s-body: #e8dec4;
     --s-eyebrow: #e3c98c;
@@ -511,8 +513,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     --s-rule-lit: rgba(227, 201, 140, 0.4);
   }
   .exp-pos-4 {
-    --s-pre: #3a3629;
-    --s-post: #423d2f;
+    --s-pre: #383026;
+    --s-post: #3c3228;
     --s-heading: #efd9a0;
     --s-body: #e8dec4;
     --s-eyebrow: #e3c98c;
@@ -523,8 +525,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     --s-rule-lit: rgba(227, 201, 140, 0.4);
   }
   .exp-pos-5 {
-    --s-pre: #423d2f;
-    --s-post: #494435;
+    --s-pre: #3c3228;
+    --s-post: #4a3e31;
     --s-heading: #efd9a0;
     --s-body: #e8dec4;
     --s-eyebrow: #e3c98c;
@@ -535,8 +537,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     --s-rule-lit: rgba(227, 201, 140, 0.4);
   }
   .exp-pos-6 {
-    --s-pre: #494435;
-    --s-post: #514b3a;
+    --s-pre: #4a3e31;
+    --s-post: #504737;
     --s-heading: #efd9a0;
     --s-body: #e8dec4;
     --s-eyebrow: #e3c98c;
@@ -547,8 +549,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     --s-rule-lit: rgba(227, 201, 140, 0.4);
   }
   .exp-pos-7 {
-    --s-pre: #514b3a;
-    --s-post: #585240;
+    --s-pre: #504737;
+    --s-post: #57503d;
     --s-heading: #efd9a0;
     --s-body: #e8dec4;
     --s-eyebrow: #e3c98c;
@@ -559,8 +561,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     --s-rule-lit: rgba(227, 201, 140, 0.4);
   }
   .exp-pos-8 {
-    --s-pre: #585240;
-    --s-post: #605946;
+    --s-pre: #57503d;
+    --s-post: #68614a;
     --s-heading: #efd9a0;
     --s-body: #e8dec4;
     --s-eyebrow: #e3c98c;
@@ -571,67 +573,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     --s-rule-lit: rgba(227, 201, 140, 0.4);
   }
   .exp-pos-9 {
-    --s-pre: #605946;
-    --s-post: #67614c;
-    --s-heading: #efd9a0;
-    --s-body: #e8dec4;
-    --s-eyebrow: #e3c98c;
-    --s-rule: rgba(227, 201, 140, 0.4);
-    --s-heading-lit: #efd9a0;
-    --s-body-lit: #e8dec4;
-    --s-eyebrow-lit: #e3c98c;
-    --s-rule-lit: rgba(227, 201, 140, 0.4);
-  }
-  .exp-pos-10 {
-    --s-pre: #67614c;
-    --s-post: #6f6851;
-    --s-heading: #efd9a0;
-    --s-body: #e8dec4;
-    --s-eyebrow: #e3c98c;
-    --s-rule: rgba(227, 201, 140, 0.4);
-    --s-heading-lit: #efd9a0;
-    --s-body-lit: #e8dec4;
-    --s-eyebrow-lit: #e3c98c;
-    --s-rule-lit: rgba(227, 201, 140, 0.4);
-  }
-  .exp-pos-11 {
-    --s-pre: #6f6851;
-    --s-post: #766f57;
-    --s-heading: #efd9a0;
-    --s-body: #e8dec4;
-    --s-eyebrow: #e3c98c;
-    --s-rule: rgba(227, 201, 140, 0.4);
-    --s-heading-lit: #efd9a0;
-    --s-body-lit: #e8dec4;
-    --s-eyebrow-lit: #e3c98c;
-    --s-rule-lit: rgba(227, 201, 140, 0.4);
-  }
-  .exp-pos-12 {
     --s-pre: #766f57;
-    --s-post: #7d7660;
-    --s-heading: #efd9a0;
-    --s-body: #e8dec4;
-    --s-eyebrow: #e3c98c;
-    --s-rule: rgba(227, 201, 140, 0.4);
-    --s-heading-lit: #efd9a0;
-    --s-body-lit: #e8dec4;
-    --s-eyebrow-lit: #e3c98c;
-    --s-rule-lit: rgba(227, 201, 140, 0.4);
-  }
-  .exp-pos-13 {
-    --s-pre: #7d7660;
-    --s-post: #847d67;
-    --s-heading: #efd9a0;
-    --s-body: #e8dec4;
-    --s-eyebrow: #e3c98c;
-    --s-rule: rgba(227, 201, 140, 0.4);
-    --s-heading-lit: #efd9a0;
-    --s-body-lit: #e8dec4;
-    --s-eyebrow-lit: #e3c98c;
-    --s-rule-lit: rgba(227, 201, 140, 0.4);
-  }
-  .exp-pos-14 {
-    --s-pre: #847d67;
     --s-post: #e2d2ab;
     --s-heading: #fffcf3;
     --s-body: #fffef9;
@@ -645,6 +587,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
   .exp-section-inner {
     padding-block: 9rem;
+    padding-inline: 2rem;
+    max-width: 45rem;
+    margin-inline: auto;
   }
 
   .exp-title-block {
@@ -805,6 +750,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     }
     .exp-section-inner {
       padding-block: 6rem;
+      padding-inline: 1.4rem;
     }
   }
 
@@ -945,20 +891,195 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     --s-rule-lit: var(--s-rule);
   }
 
+  /* ---------- footer: deliberately its own class, not .exp-section ----------
+     The story sections constrain their <p>/<h2> to a readable column width
+     (.exp-section p / .exp-section h2). The footer wants the opposite: every
+     line centered across the full width. Sharing .exp-section pulled in
+     those max-widths with no auto margins, so the box hugged the left edge
+     even though its text was "centered" within it. Keeping .exp-footer
+     separate (as the reference site does) avoids that entirely. */
+  .exp-footer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 6.5rem 2.2rem 4rem;
+    background-color: var(--s-pre);
+    color: var(--s-body);
+    transition:
+      background-color 2.2s var(--ease-exp-release),
+      color 2.2s var(--ease-exp-release);
+  }
+  .exp-footer.lit {
+    background-color: var(--s-post);
+    color: var(--s-body-lit);
+  }
+  .exp-footer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(
+        202deg,
+        transparent 26%,
+        rgba(255, 250, 230, 0.22) 46%,
+        rgba(255, 248, 225, 0.09) 60%,
+        transparent 76%
+      ),
+      url("/images/hero/grain.png");
+    background-size:
+      auto,
+      220px 220px;
+    background-repeat: no-repeat, repeat;
+    mix-blend-mode: soft-light;
+    pointer-events: none;
+  }
+  .exp-footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(120% 80% at 12% 0%, rgba(255, 240, 210, 0.12), transparent 60%);
+    opacity: 0;
+    transition: opacity 2s ease;
+    pointer-events: none;
+  }
+  .exp-footer.lit::before {
+    opacity: 1;
+  }
+
+  /* ---------- interior pages: dark divider band + light reading body ---------- */
+  .exp-divider-band {
+    background-color: var(--color-exp-dusk);
+    padding: 1rem 2rem 0.9rem;
+    display: flex;
+    align-items: center;
+    min-height: 5.6rem;
+  }
+  @media (max-width: 430px) {
+    .exp-divider-band {
+      min-height: 7.8rem;
+    }
+  }
+  .exp-divider-inner {
+    max-width: 45rem;
+    margin-inline: auto;
+    width: 100%;
+  }
+  .exp-divider-band .exp-eyebrow {
+    color: #a0824a !important;
+    margin: 0 0 0.3rem !important;
+    letter-spacing: 0.1em !important;
+    font-size: 0.66rem !important;
+  }
+  .exp-divider-title {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 3vw, 2.15rem);
+    line-height: 1.15;
+    color: var(--color-exp-glow) !important;
+    max-width: 15em;
+    margin: 0 !important;
+  }
+  .exp-interior-body {
+    background-color: #e9dcb8;
+    padding: 3rem 2rem 4.5rem;
+  }
+  .exp-interior-body .exp-section-inner {
+    padding: 0;
+    max-width: 45rem;
+    margin-inline: auto;
+  }
+  /* the "thin rule between chapters" decoration is meant for the quiet gap
+     between two plain story sections on Home. Here the dark divider band
+     above already reads as the chapter break, and the rule's upward offset
+     lands it inside that band, overlapping the last word of the title. */
+  .exp-interior-body .exp-section-inner::before {
+    display: none;
+  }
+  .exp-interior-body .exp-section-inner p,
+  .exp-interior-body .exp-section-inner ul {
+    color: #332711;
+  }
+  .exp-interior-body .exp-condition-list li {
+    border-bottom-color: rgba(61, 48, 24, 0.22);
+  }
+  .exp-interior-body .exp-section-inner ul + p {
+    margin-top: 1.6rem;
+  }
+  /* the very first section under the hero already has the page's title in
+     the hero itself, so it skips the dark band and flows straight into
+     light content */
+  .exp-interior-body-lead {
+    padding-top: 5.5rem;
+  }
+  .exp-interior-body-lead .exp-eyebrow {
+    color: #4a3a1c !important;
+  }
+  .exp-lead-title {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.7rem, 3.2vw, 2.5rem);
+    line-height: 1.28;
+    color: #2e2410 !important;
+    margin: 0.5rem 0 1.4rem !important;
+    max-width: 15em;
+  }
+
+  .exp-schedule-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 280px;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 14px;
+    border: 1px solid rgba(51, 39, 17, 0.14);
+    box-shadow: 0 8px 28px rgba(28, 22, 11, 0.1);
+    background: #e9dcb8;
+  }
+  .exp-schedule-placeholder-text {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.2rem, 2.4vw, 1.5rem);
+    color: #57503d;
+    opacity: 0.75;
+  }
+  @media (max-width: 560px) {
+    .exp-schedule-placeholder {
+      min-height: 220px;
+      padding: 1.6rem;
+    }
+  }
+
+  /* interior-page footer: reference uses a flat cream tone here, not the
+     dark panel used by the collage/team sections that also share this
+     class — so these come after .exp-footer's own rules to win the tie. */
   .exp-interior-tone {
-    background-color: var(--color-exp-panel);
-    color: var(--color-exp-tan);
+    background-color: #e9dcb8;
+    color: #332711;
   }
   .exp-interior-tone h2 {
-    color: var(--color-exp-cream);
+    color: #2e2410;
+  }
+  .exp-interior-tone .exp-eyebrow {
+    color: #4a3a1c;
   }
   .exp-interior-tone .exp-btn {
-    background: var(--color-exp-glow) !important;
-    color: var(--color-exp-dusk) !important;
+    background: var(--color-exp-dusk) !important;
+    color: var(--color-exp-glow) !important;
   }
 
   .exp-page-hero .exp-phase-strip .exp-eyebrow {
     display: none;
+  }
+  .exp-page-hero--titled .exp-phase-strip .exp-eyebrow {
+    display: block;
+    color: var(--color-exp-glow);
+    opacity: 0.75;
   }
 
   .exp-collage-section,

@@ -17,16 +17,18 @@ type PageHeroProps = {
   caption: string;
   variant?: PageHeroVariant;
   className?: string;
+  /** Show the small uppercase eyebrow above the caption (hidden by default). */
+  showEyebrow?: boolean;
 };
 
-const PageHero = ({ srTitle, eyebrow, caption, variant = "arrived", className }: PageHeroProps) => {
+const PageHero = ({ srTitle, eyebrow, caption, variant = "arrived", className, showEyebrow = false }: PageHeroProps) => {
   const { src, iso, spill, board } = PAGE_HERO_VARIANTS[variant];
   const engine = usePageHeroExperience(board);
 
   return (
     <header
       ref={engine.heroRef as React.RefObject<HTMLElement>}
-      className={cn("exp-hero exp-page-hero", className)}
+      className={cn("exp-hero exp-page-hero", showEyebrow && "exp-page-hero--titled", className)}
     >
       <h1 className="sr-only">{srTitle}</h1>
 

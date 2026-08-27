@@ -13,8 +13,8 @@ const NotFound = () => {
         <Link href={Routes.HOME}>
           <Button>Go back home</Button>
         </Link>
-        <Link href={Routes.CONTACT}>
-          <Button variant="secondary">Contact Us</Button>
+        <Link href={Routes.BOOK}>
+          <Button variant="secondary">Book a Session</Button>
         </Link>
       </div>
     </div>

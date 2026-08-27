@@ -1,6 +1,6 @@
 import { HERO_BOARD, type BoardBox } from "@/lib/experience/engine";
 
-export type PageHeroVariant = "present" | "rising" | "session" | "arrived" | "compressed";
+export type PageHeroVariant = "present" | "rising" | "session" | "arrived" | "compressed" | "entering" | "opening";
 
 export interface PageHeroVariantConfig {
   src: string;
@@ -38,6 +38,18 @@ export const PAGE_HERO_VARIANTS: Record<PageHeroVariant, PageHeroVariantConfig> 
     src: "/images/hero/frame1.jpg",
     iso: "/images/hero/frame1-iso.jpg",
     spill: "/images/hero/frame1-spill.jpg",
+    board: HERO_BOARD,
+  },
+  entering: {
+    src: "/images/hero/frame2.jpg",
+    iso: "/images/hero/frame2-iso.jpg",
+    spill: "/images/hero/frame2-spill.jpg",
+    board: HERO_BOARD,
+  },
+  opening: {
+    src: "/images/hero/frame3.jpg",
+    iso: "/images/hero/frame3-iso.jpg",
+    spill: "/images/hero/frame3-spill.jpg",
     board: HERO_BOARD,
   },
 };

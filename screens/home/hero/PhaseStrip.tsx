@@ -1,11 +1,8 @@
-import Link from "next/link";
-
 import { cn } from "@/utils";
 
 import type { HeroExperienceEngine } from "@/lib/experience/useHeroExperience";
 
 import { PHASE_DOT_LABELS } from "@/constants/homeExperience";
-import { Routes } from "@/constants/routes";
 
 const PhaseStrip = ({ engine }: { engine: HeroExperienceEngine }) => {
   return (
@@ -51,16 +48,15 @@ const PhaseStrip = ({ engine }: { engine: HeroExperienceEngine }) => {
         </button>
       </div>
 
-      <Link
-        href={Routes.SERVICES}
+      <div
         className={cn(
           "mt-1 flex items-center gap-2.5 text-2xs tracking-[0.18em] text-exp-tan uppercase opacity-0 transition-opacity duration-1000",
           engine.hintVisible && "opacity-85"
         )}
       >
-        <span> Explore Services</span>
+        <span>The light follows you down</span>
         <div className="exp-scroll-line" />
-      </Link>
+      </div>
     </div>
   );
 };
