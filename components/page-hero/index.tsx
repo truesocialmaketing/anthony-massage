@@ -8,6 +8,8 @@ import { PAGE_HERO_VARIANTS, type PageHeroVariant } from "@/constants/pageHero";
 
 import Title from "@/components/title";
 
+import PageLightSweep from "./PageLightSweep";
+
 const HERO_FRAME_WIDTH = 1672;
 const HERO_FRAME_HEIGHT = 941;
 
@@ -64,6 +66,8 @@ const PageHero = ({ srTitle, eyebrow, caption, variant = "arrived", className, s
             fetchPriority="high"
             alt=""
           />
+
+          <PageLightSweep engine={engine} />
         </div>
 
         <div

@@ -329,6 +329,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     );
     filter: blur(9px);
   }
+  /* interior pages: fixed, stage-relative pool in the corner — matching the
+     reference site exactly — rather than a size/position computed from the
+     board's own measured rect, which stretched this into a wide diagonal
+     wash instead of a tight glow in the stage's bottom-left corner. */
+  .exp-page-hero .exp-light-spill {
+    left: 0;
+    bottom: 0;
+    width: 34%;
+    height: 44%;
+  }
 
   .exp-spill-cascade {
     position: absolute;
@@ -951,7 +961,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   /* ---------- interior pages: dark divider band + light reading body ---------- */
   .exp-divider-band {
     background-color: var(--color-exp-dusk);
-    padding: 1rem 2rem 0.9rem;
+    padding-block: 1rem 0.9rem;
     display: flex;
     align-items: center;
     min-height: 5.6rem;
@@ -961,10 +971,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
       min-height: 7.8rem;
     }
   }
+  /* padding-inline here (not on .exp-divider-band) so the text lines up
+     exactly with .exp-phase-strip's own 2.2rem inset, not just with its
+     outer box. */
   .exp-divider-inner {
-    max-width: 45rem;
+    max-width: 85rem;
     margin-inline: auto;
     width: 100%;
+    padding-inline: 2.2rem;
   }
   .exp-divider-band .exp-eyebrow {
     color: #a0824a !important;
@@ -984,11 +998,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
   .exp-interior-body {
     background-color: #e9dcb8;
-    padding: 3rem 2rem 4.5rem;
+    padding-block: 3rem 4.5rem;
   }
   .exp-interior-body .exp-section-inner {
-    padding: 0;
-    max-width: 45rem;
+    padding-block: 0;
+    padding-inline: 2.2rem;
+    max-width: 85rem;
     margin-inline: auto;
   }
   /* the "thin rule between chapters" decoration is meant for the quiet gap
