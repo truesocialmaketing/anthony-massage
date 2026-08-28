@@ -597,8 +597,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
   .exp-section-inner {
     padding-block: 9rem;
-    padding-inline: 2rem;
-    max-width: 45rem;
+    padding-inline: 2.2rem;
+    max-width: 85rem;
     margin-inline: auto;
   }
 
