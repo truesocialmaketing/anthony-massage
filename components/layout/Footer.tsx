@@ -23,6 +23,8 @@ const Footer = ({ engine }: Props) => {
   const reveal = useReveal<HTMLElement>();
 
   if (!engine && pathname === Routes.HOME) return null;
+  // Your Body closes with its own quiet sign-off instead of the footer (v39).
+  if (pathname === Routes.YOUR_BODY) return null;
 
   const isInterior = !engine;
   const override = INTERIOR_FOOTER_COPY[pathname ?? ""];
@@ -43,7 +45,7 @@ const Footer = ({ engine }: Props) => {
         className={cn(
           "mb-[1.2rem] block text-2xs font-medium tracking-[0.32em] uppercase transition-colors duration-2200 ease-exp-release",
           isInterior
-            ? "text-[#4a3a1c]"
+            ? "text-[#b9a878]"
             : "text-(--s-eyebrow,var(--color-exp-gold)) group-[.lit]:text-(--s-eyebrow-lit,var(--s-eyebrow))"
         )}
       >
@@ -53,13 +55,20 @@ const Footer = ({ engine }: Props) => {
         className={cn(
           "mb-[0.7rem] font-display text-[clamp(1.8rem,3.6vw,2.6rem)] font-normal italic transition-colors duration-2200 ease-exp-release",
           isInterior
-            ? "text-[#2e2410]"
+            ? "text-[#f2e6c9]"
             : "text-(--s-heading,var(--color-exp-olive-deep)) group-[.lit]:text-(--s-heading-lit,var(--s-heading))"
         )}
       >
         {HOME_EXPERIENCE_FOOTER.title}
       </h2>
-      <span className="mb-[1.9rem] block max-w-120 text-base+ font-light">{override?.sub ?? HOME_EXPERIENCE_FOOTER.sub}</span>
+      <span
+        className={cn(
+          "mb-[1.9rem] block max-w-120 text-base+",
+          isInterior ? "font-[350] text-[#d8cfb4]" : "font-light"
+        )}
+      >
+        {override?.sub ?? HOME_EXPERIENCE_FOOTER.sub}
+      </span>
 
       <Link href={override?.ctaHref ?? Routes.BOOK}>
         <Button
@@ -70,7 +79,14 @@ const Footer = ({ engine }: Props) => {
         </Button>
       </Link>
 
-      <span className="mt-18 block text-2xs tracking-[0.16em] uppercase opacity-60">{HOME_EXPERIENCE_FOOTER.fine}</span>
+      <span
+        className={cn(
+          "mt-18 block text-2xs tracking-[0.16em] uppercase",
+          isInterior ? "text-[#9d947c] opacity-75" : "opacity-60"
+        )}
+      >
+        {HOME_EXPERIENCE_FOOTER.fine}
+      </span>
     </footer>
   );
 };

@@ -2,25 +2,25 @@ import { generateMetadata } from "@/utils/generateMetadata";
 import { generateJsonLd } from "@/utils/generateSchema";
 
 import { Routes } from "@/constants/routes";
-import { CONDITIONS_PAGE } from "@/constants/interiorPages";
+import { YOUR_BODY_INTRO } from "@/constants/yourBody";
 
 import JsonLd from "@/components/json-ld";
 
-import InteriorPage from "@/screens/interior/InteriorPage";
+import YourBody from "@/screens/your-body";
 
-const title = "Conditions";
-const description = CONDITIONS_PAGE.lead.title;
-const path = Routes.CONDITIONS;
+const title = "Your Body";
+const description = YOUR_BODY_INTRO.paragraphs[0];
+const path = Routes.YOUR_BODY;
 
 export const metadata = generateMetadata({ title, description, path });
 
 const jsonLd = generateJsonLd({ type: "WebPage", title, description, path });
 
-export default function ConditionsPage() {
+export default function YourBodyPage() {
   return (
     <>
       <JsonLd schemas={[jsonLd]} />
-      <InteriorPage {...CONDITIONS_PAGE} />
+      <YourBody />
     </>
   );
 }

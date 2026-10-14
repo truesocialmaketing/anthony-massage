@@ -510,6 +510,20 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     --s-eyebrow-lit: #e3c98c;
     --s-rule-lit: rgba(227, 201, 140, 0.4);
   }
+  /* v39 inserted "I know what it feels like" between positions 2 and 3; it
+     shares position 3's colours so the spine still steps smoothly. */
+  .exp-pos-2b {
+    --s-pre: #352d23;
+    --s-post: #383026;
+    --s-heading: #efd9a0;
+    --s-body: #e8dec4;
+    --s-eyebrow: #e3c98c;
+    --s-rule: rgba(227, 201, 140, 0.4);
+    --s-heading-lit: #efd9a0;
+    --s-body-lit: #e8dec4;
+    --s-eyebrow-lit: #e3c98c;
+    --s-rule-lit: rgba(227, 201, 140, 0.4);
+  }
   .exp-pos-3 {
     --s-pre: #352d23;
     --s-post: #383026;
@@ -1169,5 +1183,146 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
   .exp-collage-copy strong {
     color: var(--color-exp-cream);
+  }
+}
+
+/* ============================================================
+   INTERIOR PAGES — dark reading panel (v39)
+   Ported from Anthony's v39 styles.css (body.interior block). Light text on
+   a dark ground blooms, so body copy sits at weight 350 on a panel lifted
+   off pure black rather than reaching for more contrast. The small
+   uppercase labels above each heading are hidden: in dark gold on a dark
+   panel they were unreadable, and the italic title already names the
+   section. Kept last so it wins over the cream-panel rules above.
+   ============================================================ */
+@layer components {
+  .exp-interior-body,
+  .exp-interior-tone {
+    background-color: #16120b;
+  }
+  .exp-interior-tone {
+    color: #d8cfb4;
+  }
+  /* v39 sets Karla on <body>; here the site default would win, so name it. */
+  .exp-interior-body,
+  .exp-interior-tone,
+  .exp-interior-body p,
+  .exp-interior-tone span {
+    font-family: var(--font-experience), -apple-system, "Segoe UI", sans-serif;
+  }
+  .exp-interior-body .exp-section-inner p,
+  .exp-interior-body .exp-section-inner ul {
+    color: #e4dbc2;
+    font-weight: 350;
+    letter-spacing: 0.006em;
+    font-size: 1.14rem;
+    line-height: 1.9;
+  }
+  .exp-interior-body .exp-condition-list li {
+    border-bottom-color: rgba(214, 199, 150, 0.14);
+  }
+  .exp-interior-body h2,
+  .exp-interior-tone h2 {
+    color: #f2e6c9;
+  }
+  .exp-lead-title,
+  .exp-divider-title {
+    color: #f6d78e !important;
+    font-weight: 500;
+  }
+  .exp-divider-band .exp-eyebrow,
+  .exp-interior-body-lead .exp-eyebrow {
+    display: none !important;
+  }
+  .exp-interior-body-lead {
+    padding-top: 4.2rem;
+  }
+  .exp-interior-tone .exp-btn {
+    background: #f6d78e !important;
+    color: #14110b !important;
+  }
+
+  .exp-schedule-placeholder {
+    background: #1d170d;
+    border-color: rgba(214, 199, 150, 0.16);
+    box-shadow: none;
+  }
+  .exp-schedule-placeholder-text {
+    color: #9d947c;
+  }
+
+  /* ---------- Therapists roster ----------
+     Portrait beside the introduction on wide screens, stacked on a phone.
+     The portrait keeps a fixed 4:5 so a swapped-in photograph can't change
+     the rhythm of the page. */
+  .exp-therapist-card {
+    display: grid;
+    grid-template-columns: minmax(190px, 280px) 1fr;
+    gap: clamp(1.6rem, 3.4vw, 3rem);
+    align-items: start;
+  }
+  .exp-therapist-portrait {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    display: block;
+    border-radius: 14px;
+    border: 1px solid rgba(214, 199, 150, 0.16);
+  }
+  .exp-interior-body .exp-therapist-name {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: #f2e6c9;
+    margin: 0 0 0.2rem;
+    line-height: 1.2;
+  }
+  .exp-interior-body .exp-section-inner .exp-therapist-role {
+    font-family: var(--font-experience);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.68rem;
+    color: #b9a878;
+    margin: 0 0 1.4rem;
+  }
+  .exp-interior-body .exp-section-inner .exp-therapist-line {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1.15rem, 2.3vw, 1.4rem);
+    color: #f6d78e;
+    margin: 0 0 1.5rem;
+    line-height: 1.4;
+  }
+  .exp-therapist-link {
+    margin-top: 1.9rem;
+  }
+  .exp-therapist-link a {
+    display: inline-block;
+    font-family: var(--font-experience);
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.76rem;
+    color: #f6d78e;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(246, 215, 142, 0.38);
+    padding-bottom: 0.35rem;
+    transition:
+      border-color 0.5s var(--ease-exp-release),
+      color 0.5s var(--ease-exp-release);
+  }
+  .exp-therapist-link a:hover,
+  .exp-therapist-link a:focus-visible {
+    color: #fff0c8;
+    border-bottom-color: #f6d78e;
+  }
+  @media (max-width: 760px) {
+    .exp-therapist-card {
+      grid-template-columns: 1fr;
+    }
+    .exp-therapist-portrait {
+      max-width: 260px;
+    }
   }
 }

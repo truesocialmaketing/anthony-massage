@@ -30,8 +30,9 @@ const cormorantGaramond = Cormorant_Garamond({
   display: "swap",
 });
 
+// Variable axis (no fixed weights) so the v39 copy's 350 weight renders as
+// 350 rather than silently snapping to 300.
 const karla = Karla({
-  weight: ["300", "400", "500"],
   subsets: ["latin"],
   variable: "--font-experience",
   display: "swap",

@@ -1,12 +1,13 @@
 export enum Routes {
   HOME = "/",
   APPROACH = "/approach",
-  CONDITIONS = "/conditions",
   YOUR_SESSION = "/your-session",
-  WORKING_TOGETHER = "/working-together",
-  RESOURCES = "/resources",
+  YOUR_BODY = "/your-body",
+  THERAPISTS = "/therapists",
+  THERAPIST_ANTHONY = "/therapist-anthony",
+  THERAPIST_COLE_FRANCIS = "/therapist-cole-francis",
+  THERAPIST_SONG_YING = "/therapist-song-ying",
   BOOK = "/book",
-  ANTHONY = "/anthony",
 
   // Retired — the site now mirrors the reference design's page set above.
   // The underlying app/ folders were renamed with a leading underscore so

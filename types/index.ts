@@ -1,7 +1,5 @@
 import type { IconDefinition } from "@fortawesome/free-brands-svg-icons";
 
-import type { ServiceIconName } from "@/components/experience/service-icons";
-
 export type NavItemChild = { slug: string; href: string; title: string };
 
 export type NavItem = {
@@ -29,16 +27,6 @@ export type ServiceEntry = {
   icon: string;
   title: string;
   price?: string;
-};
-
-export type ServiceCardEntry = {
-  icon: ServiceIconName;
-  title: string;
-  tagline: string;
-  text: string;
-  imgSrc: string;
-  alt: string;
-  href: string;
 };
 
 export type FAQEntry = {
@@ -135,22 +123,6 @@ export type TeamMember = {
   imageAlt?: string;
   socials?: SocialLink[];
 };
-
-export type Testimonial = {
-  name: string;
-  testimonial: string;
-  date: string;
-  imgSrc: string;
-  rating?: number;
-};
-
-export type TestimonialMedia = {
-  imgSrc: string;
-  alt: string;
-  videoUrl?: string;
-};
-
-export type TestimonialItem = ({ kind: "quote" } & Testimonial) | ({ kind: "media" } & TestimonialMedia);
 
 export type Post = {
   title: string;

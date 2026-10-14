@@ -1,0 +1,642 @@
+/* ============================================================
+   YOUR BODY — ported from Anthony's v39 your-body.html inline stylesheet.
+   Everything is scoped to .yb-page so it can't leak into the rest of the
+   site. Values are his; adjust them there first.
+   ============================================================ */
+.yb-page {
+  --yb-dusk: #100d08;
+  --yb-glow: #f6d78e;
+  --yb-gold: #8a7038;
+  --yb-serif: var(--font-display), Georgia, serif;
+  --yb-sans: var(--font-experience), -apple-system, sans-serif;
+  --yb-ease: cubic-bezier(0.19, 1, 0.22, 1);
+  --yb-body: #d8cfb4;
+  --yb-soft: #9d947c;
+  --yb-line: rgba(214, 199, 150, 0.1);
+
+  /* no z-index here: it would trap the full-screen bloom overlay beneath
+     the fixed site nav */
+  position: relative;
+  background: #14110b;
+  font-family: var(--yb-sans);
+  font-weight: 350;
+  line-height: 1.8;
+  color: var(--yb-body);
+  -webkit-font-smoothing: antialiased;
+  color-scheme: dark;
+}
+.yb-page *,
+.yb-page *::before,
+.yb-page *::after {
+  box-sizing: border-box;
+}
+:where(.yb-page) p,
+:where(.yb-page) h1,
+:where(.yb-page) h2,
+:where(.yb-page) h3,
+:where(.yb-page) ul {
+  margin: 0;
+  padding: 0;
+}
+/* the site's base layer gives every <p> its own colour and size; this page
+   expects paragraphs to inherit from their panel, as in v39. :where() keeps these resets weaker than any class rule below. */
+:where(.yb-page) p {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.yb-hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.yb-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.yb-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(16, 13, 8, 0) 55%, var(--yb-dusk) 100%);
+  pointer-events: none;
+}
+
+.yb-wrap {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 clamp(1.4rem, 5vw, 3rem);
+}
+
+.yb-intro {
+  padding: clamp(3rem, 7vw, 5.5rem) 0 clamp(2.5rem, 5vw, 3.5rem);
+}
+.yb-intro h1 {
+  font-family: var(--yb-serif);
+  font-weight: 500;
+  font-size: clamp(2.1rem, 5vw, 3.1rem);
+  color: #f2e6c9;
+  letter-spacing: 0.01em;
+  margin-bottom: 1.6rem;
+}
+.yb-intro .yb-rule {
+  width: 46px;
+  height: 1px;
+  background: var(--yb-gold);
+  opacity: 0.6;
+  margin: 0 0 1.8rem;
+}
+.yb-intro p {
+  max-width: 34rem;
+  margin-bottom: 1.2rem;
+}
+.yb-intro .yb-whisper {
+  font-family: var(--yb-serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--yb-soft);
+  max-width: 30rem;
+}
+
+.yb-regions {
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+/* ---------- LEVEL 1 : region card — the dark, contained starting point ---------- */
+.yb-region {
+  border: 1px solid var(--yb-line);
+  border-radius: 18px;
+  margin-bottom: 0.9rem;
+  background: #171208;
+  transition:
+    background 0.5s var(--yb-ease),
+    box-shadow 0.6s var(--yb-ease);
+  position: relative;
+  z-index: 1;
+}
+.yb-region.open {
+  background: #1b1509;
+  box-shadow: 0 24px 60px -42px rgba(0, 0, 0, 0.9);
+}
+.yb-region-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1.6rem 1.8rem;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: inherit;
+  text-align: left;
+  font-family: var(--yb-serif);
+  font-size: clamp(1.3rem, 2.6vw, 1.75rem);
+  font-weight: 500;
+  transition: color 0.3s var(--yb-ease);
+}
+.yb-region-head:hover {
+  color: #fff;
+}
+.yb-region-ico {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(214, 199, 150, 0.3);
+  display: grid;
+  place-items: center;
+  color: var(--yb-gold);
+}
+.yb-region-ico svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.3;
+}
+.yb-region-title {
+  flex: 1 1 auto;
+}
+.yb-region-sign {
+  flex: 0 0 auto;
+  font-family: var(--yb-sans);
+  font-weight: 350;
+  font-size: 1.5rem;
+  color: var(--yb-soft);
+  transition: transform 0.4s var(--yb-ease);
+}
+.yb-region.open .yb-region-sign {
+  transform: rotate(45deg);
+}
+.yb-region-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.7s var(--yb-ease);
+}
+.yb-region-body.open-vis {
+  overflow: visible;
+}
+
+/* ---------- LEVEL 2 : recognitions — on the dark card, flat ---------- */
+.yb-bay {
+  padding: 0.2rem 1.8rem 2rem;
+}
+.yb-lvl-label {
+  font-family: var(--yb-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.68rem;
+  color: var(--yb-soft);
+  margin: 0.4rem 0 0.2rem !important;
+}
+.yb-recognitions {
+  display: flex;
+  flex-direction: column;
+}
+.yb-rec {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  background: none;
+  border: 0;
+  border-top: 1px solid rgba(214, 199, 150, 0.08);
+  cursor: pointer;
+  text-align: left;
+  padding: 1.5rem 0.3rem;
+  font-family: var(--yb-serif);
+  font-size: clamp(1.15rem, 2.3vw, 1.42rem);
+  font-weight: 400;
+  color: #e7dcc0;
+  transition:
+    color 0.3s var(--yb-ease),
+    padding-left 0.35s var(--yb-ease);
+}
+/* matches v39 exactly: each .rec is the first child of its wrapper, so this
+   applies to every row */
+.yb-rec:first-child {
+  border-top: 0;
+}
+.yb-rec:hover {
+  color: #fff;
+  padding-left: 0.7rem;
+}
+.yb-rec .yb-chev {
+  flex: 0 0 auto;
+  color: var(--yb-soft);
+  font-size: 1.1rem;
+  transition: transform 0.4s var(--yb-ease);
+  font-family: var(--yb-sans);
+}
+.yb-rec:hover .yb-chev {
+  color: var(--yb-gold);
+}
+.yb-rec.active {
+  color: var(--yb-glow);
+}
+.yb-rec.active .yb-chev {
+  transform: rotate(180deg);
+  color: var(--yb-gold);
+}
+
+/* ---------- LEVEL 3 : understanding — EMERGES as a warm, luminous panel ---------- */
+.yb-understanding {
+  max-height: 0;
+  overflow: hidden;
+  /* The panel is wider than its row by 0.5rem a side. That overhang lives on
+     this clipping wrapper rather than on the panel, so nothing is cut off
+     mid-animation and then snaps into place when the clip is released. */
+  margin-inline: -0.5rem;
+  transition: max-height 0.75s var(--yb-ease);
+}
+.yb-understanding.vis {
+  overflow: visible;
+}
+.yb-chamber {
+  overflow: visible;
+  position: relative;
+  z-index: 2;
+  margin: 1.3rem 0 0;
+  padding: 2.3rem 1.9rem 2.5rem;
+  border-radius: 20px;
+  background:
+    radial-gradient(130% 100% at 35% 4%, rgba(255, 243, 210, 0.3), rgba(255, 243, 210, 0) 66%),
+    linear-gradient(180deg, #42371a, #322815);
+  /* The shadow and outer glow would be hard-clipped while the panel slides
+     open, so they start transparent and fade in once it has landed (.vis). */
+  box-shadow:
+    0 26px 60px -34px rgba(0, 0, 0, 0),
+    0 0 90px 6px rgba(246, 215, 142, 0);
+  color: #efe4c8;
+  opacity: 0;
+  transform: translateY(16px) scale(0.99);
+  transition:
+    opacity 0.8s var(--yb-ease),
+    transform 0.8s var(--yb-ease),
+    box-shadow 0.6s var(--yb-ease);
+}
+.yb-understanding.vis .yb-chamber {
+  box-shadow:
+    0 26px 60px -34px rgba(0, 0, 0, 0.8),
+    0 0 90px 6px rgba(246, 215, 142, 0.14);
+}
+.yb-rec.active + .yb-understanding .yb-chamber {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.yb-threshold {
+  font-family: var(--yb-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #f0e2b8;
+  margin-bottom: 1.7rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.yb-threshold::after {
+  content: "";
+  flex: 1 1 auto;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(240, 226, 184, 0.5), transparent);
+}
+.yb-chamber p {
+  max-width: 34rem;
+  margin-bottom: 1.2rem;
+}
+.yb-chamber .yb-u-lead {
+  color: #f4ead0;
+  font-size: 1.08rem;
+}
+.yb-chamber p:last-of-type {
+  margin-bottom: 0;
+}
+
+.yb-closing {
+  text-align: center;
+  padding: clamp(3.5rem, 7vw, 6rem) 0 clamp(4rem, 9vw, 7rem);
+  font-family: var(--yb-serif);
+  font-style: italic;
+  font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+  line-height: 1.7;
+  color: var(--yb-soft);
+}
+.yb-closing span {
+  display: block;
+}
+
+/* ---------- STAR TRIGGER (a single shimmering star at the card's bottom edge) ---------- */
+.yb-bloom-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 1.4rem auto 0;
+  padding: 1rem 0.5rem;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.yb-star {
+  width: 30px;
+  height: 30px;
+  overflow: visible;
+  fill: #fffdf6;
+  filter: drop-shadow(0 0 6px rgba(255, 246, 205, 0.95)) drop-shadow(0 0 16px rgba(248, 224, 150, 0.6));
+  animation: yb-star-twinkle 3.2s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes yb-star-twinkle {
+  0%,
+  100% {
+    transform: scale(0.82) rotate(0deg);
+    opacity: 0.85;
+    filter: drop-shadow(0 0 4px rgba(255, 246, 205, 0.8)) drop-shadow(0 0 10px rgba(248, 224, 150, 0.4));
+  }
+  50% {
+    transform: scale(1.1) rotate(45deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(255, 252, 235, 1)) drop-shadow(0 0 22px rgba(248, 224, 150, 0.8));
+  }
+}
+.yb-bloom-trigger:hover .yb-star {
+  transform: scale(1.15);
+}
+
+/* ---------- BLOOM OVERLAY (the arrival — full-screen energy field) ---------- */
+.yb-bloom-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100; /* above the site nav and scroll-to-top button (z 50) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(12, 10, 6, 0);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.8s var(--yb-ease),
+    background 0.8s var(--yb-ease),
+    visibility 0s 0.8s;
+}
+.yb-bloom-overlay.open {
+  opacity: 1;
+  visibility: visible;
+  background: rgba(9, 7, 4, 0.94);
+  transition:
+    opacity 0.8s var(--yb-ease),
+    background 0.8s var(--yb-ease),
+    visibility 0s 0s;
+}
+.yb-bloom-field {
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 640px);
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.82);
+  opacity: 0;
+  transition:
+    transform 1.1s var(--yb-ease),
+    opacity 1.1s var(--yb-ease);
+}
+.yb-bloom-overlay.open .yb-bloom-field {
+  transform: scale(1);
+  opacity: 1;
+}
+/* the living sphere of light — WebGL, full-bleed behind the words */
+.yb-bloom-gl {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.1s var(--yb-ease);
+  /* fallback ONLY if WebGL is unavailable — a warm bloom so the words stay readable */
+  background: radial-gradient(
+    circle at 50% 50%,
+    #fffdf7 0%,
+    #fdf3dc 26%,
+    #efd9a6 44%,
+    rgba(120, 96, 40, 0.32) 64%,
+    rgba(20, 17, 11, 0) 84%
+  );
+}
+.yb-bloom-overlay.open .yb-bloom-gl {
+  opacity: 1;
+}
+/* words are rendered as light-particles inside the canvas; the copy stays in
+   the DOM for screen readers only */
+.yb-bloom-content {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.yb-bloom-close {
+  position: absolute;
+  top: max(1.4rem, env(safe-area-inset-top));
+  right: 1.6rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 250, 235, 0.06);
+  border: 1px solid rgba(246, 215, 142, 0.25);
+  color: #e9dcb8;
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transition: opacity 0.6s var(--yb-ease) 0.5s;
+}
+.yb-bloom-overlay.open .yb-bloom-close {
+  opacity: 0.8;
+}
+.yb-bloom-close:hover {
+  opacity: 1;
+}
+.yb-bloom-hint {
+  position: absolute;
+  z-index: 2;
+  bottom: max(2rem, env(safe-area-inset-bottom));
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: var(--yb-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: rgba(233, 220, 184, 0.5);
+  opacity: 0;
+  transition: opacity 0.6s var(--yb-ease) 0.7s;
+}
+.yb-bloom-overlay.open .yb-bloom-hint {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .yb-page *,
+  .yb-bloom-overlay,
+  .yb-bloom-overlay * {
+    transition: none !important;
+  }
+  .yb-chamber {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ============================================================
+   LIBRARY — the growing knowledge section.
+   Second movement of the page: from recognising what you feel
+   (the regions above) to learning about the body itself.
+   Absorbs what was previously the standalone Resources page.
+   ============================================================ */
+.yb-library {
+  padding: 0 0 clamp(0.5rem, 2vw, 1.5rem);
+}
+.yb-lib-open {
+  border-top: 1px solid var(--yb-line);
+  padding: clamp(2.6rem, 6vw, 4rem) 0 clamp(1.8rem, 4vw, 2.6rem);
+}
+.yb-lib-eyebrow {
+  font-family: var(--yb-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.68rem;
+  color: var(--yb-soft);
+  margin: 0 0 1.1rem !important;
+}
+.yb-lib-title {
+  font-family: var(--yb-serif);
+  font-weight: 500;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  color: #f2e6c9;
+  letter-spacing: 0.01em;
+  margin: 0 0 1.4rem !important;
+}
+.yb-lib-rule {
+  width: 46px;
+  height: 1px;
+  background: var(--yb-gold);
+  opacity: 0.6;
+  margin: 0 0 1.7rem;
+}
+.yb-lib-lead {
+  max-width: 34rem;
+  margin: 0 0 1.1rem !important;
+}
+.yb-lib-lead:last-child {
+  margin-bottom: 0 !important;
+}
+
+.yb-shelves {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 0.9rem;
+}
+.yb-shelf {
+  border: 1px solid var(--yb-line);
+  border-radius: 18px;
+  background: #171208;
+  padding: 1.75rem 1.75rem 1.6rem;
+}
+.yb-shelf-head {
+  display: flex;
+  align-items: center;
+  gap: 0.95rem;
+  margin-bottom: 0.95rem;
+}
+.yb-shelf-ico {
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(214, 199, 150, 0.3);
+  display: grid;
+  place-items: center;
+  color: var(--yb-gold);
+}
+.yb-shelf-ico svg {
+  width: 19px;
+  height: 19px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.yb-shelf-title {
+  font-family: var(--yb-serif);
+  font-weight: 500;
+  font-size: clamp(1.2rem, 2.4vw, 1.45rem);
+  color: #e7dcc0;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+.yb-shelf-note {
+  font-family: var(--yb-serif);
+  font-style: italic;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--yb-soft);
+  margin: 0 0 1.15rem !important;
+  max-width: 30rem;
+}
+
+.yb-topics {
+  list-style: none;
+}
+.yb-topic {
+  border-top: 1px solid rgba(214, 199, 150, 0.08);
+  padding: 0.95rem 0;
+}
+.yb-topic:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+.yb-topic:last-child {
+  padding-bottom: 0;
+}
+.yb-topic-name {
+  display: block;
+  font-family: var(--yb-serif);
+  font-size: 1.14rem;
+  color: #e7dcc0;
+  margin-bottom: 0.3rem;
+}
+.yb-topic-desc {
+  display: block;
+  font-family: var(--yb-sans);
+  font-weight: 350;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--yb-soft);
+  max-width: 30rem;
+}
+
+.yb-lib-foot {
+  margin: 1.6rem 0 0 !important;
+  font-family: var(--yb-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--yb-soft);
+}

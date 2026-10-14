@@ -2,6 +2,10 @@
 
 import { useReveal } from "@/lib/experience/useReveal";
 
+import { CALENDLY_URL } from "@/constants/booking";
+
+import CalendlyEmbed from "./CalendlyEmbed";
+
 export type DividerBlock =
   | { type: "p"; text: string; spaced?: boolean }
   | { type: "list"; items: string[] }
@@ -61,7 +65,14 @@ const DividerSection = ({ id, eyebrow, title, blocks }: DividerSectionProps) => 
             }
 
             if (block.type === "schedule") {
-              return (
+              // Live calendar once CALENDLY_URL is set (constants/booking.ts);
+              // Anthony's placeholder until then.
+              return CALENDLY_URL ? (
+                <CalendlyEmbed
+                  key={i}
+                  url={CALENDLY_URL}
+                />
+              ) : (
                 <div
                   key={i}
                   className="exp-schedule-placeholder"
@@ -91,6 +102,7 @@ const DividerSection = ({ id, eyebrow, title, blocks }: DividerSectionProps) => 
             return (
               <p
                 key={i}
+                className="whitespace-pre-line"
                 style={block.spaced ? { marginTop: "1.6rem" } : undefined}
               >
                 {block.text}

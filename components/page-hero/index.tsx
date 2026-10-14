@@ -17,13 +17,23 @@ type PageHeroProps = {
   srTitle: string;
   eyebrow: string;
   caption: string;
+  /** Describes the billboard scene for screen readers; falls back to the caption. */
+  ariaLabel?: string;
   variant?: PageHeroVariant;
   className?: string;
   /** Show the small uppercase eyebrow above the caption (hidden by default). */
   showEyebrow?: boolean;
 };
 
-const PageHero = ({ srTitle, eyebrow, caption, variant = "arrived", className, showEyebrow = false }: PageHeroProps) => {
+const PageHero = ({
+  srTitle,
+  eyebrow,
+  caption,
+  ariaLabel,
+  variant = "arrived",
+  className,
+  showEyebrow = false,
+}: PageHeroProps) => {
   const { src, iso, spill, board } = PAGE_HERO_VARIANTS[variant];
   const engine = usePageHeroExperience(board);
 
@@ -38,7 +48,7 @@ const PageHero = ({ srTitle, eyebrow, caption, variant = "arrived", className, s
         ref={engine.stageRef}
         className="exp-stage"
         role="img"
-        aria-label={caption}
+        aria-label={ariaLabel ?? caption}
       >
         <div className="absolute inset-0 z-1 grayscale brightness-82 contrast-103">
           <img

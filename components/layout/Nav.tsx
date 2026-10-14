@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 
 import { cn } from "@/utils";
 
-import navLinks from "@/constants/navLinks";
+import navLinks, { isNavItemActive } from "@/constants/navLinks";
 
 import Logo from "@/components/logo";
 
@@ -48,7 +48,7 @@ const Nav = () => {
               href={item.href}
               className={cn(
                 "text-sm text-exp-tan transition-colors duration-300",
-                pathname === item.href ? "text-exp-gold" : "hover:text-white"
+                isNavItemActive(item.href, pathname) ? "text-exp-gold" : "hover:text-white"
               )}
             >
               {item.title}

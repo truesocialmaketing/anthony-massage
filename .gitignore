@@ -33,3 +33,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Anthony's handover (v39) and image working files: reference copies, kept
+# locally for checking copy and artwork against. The originals live in his
+# Google Drive folder.
+/handover/

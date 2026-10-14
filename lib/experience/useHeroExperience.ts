@@ -32,6 +32,8 @@ function applyFrameStates(refs: ImgRefs, progress: number) {
   });
 }
 
+const FRAMES_READY_CAP_MS = 5000;
+
 export function useHeroExperience() {
   const heroRef = React.useRef<HTMLElement | null>(null);
   const stageRef = React.useRef<HTMLDivElement | null>(null);
@@ -74,6 +76,7 @@ export function useHeroExperience() {
     rafId: 0,
     BR: null as BoardRect | null,
     wispFrame: 0,
+    framesReady: false,
   });
 
   const goToPhase = React.useCallback((k: number) => {
@@ -183,9 +186,26 @@ export function useHeroExperience() {
       boardColorRef.current.style.webkitMaskImage = mask;
     }
 
+    // Hold the timeline on its opening frame until every hero image has
+    // decoded. Otherwise, on a cold or slow connection, a later frame can
+    // finish loading mid-crossfade and pop in — which reads as a blink.
+    // Capped so a stalled image never freezes the hero.
+    const heroImages = [...gFrameRefs.current, ...cFrameRefs.current, ...sFrameRefs.current].filter(
+      (img): img is HTMLImageElement => !!img
+    );
+    let readyCapTimer = 0;
+    Promise.race([
+      Promise.all(heroImages.map((img) => img.decode().catch(() => undefined))),
+      new Promise((resolve) => {
+        readyCapTimer = window.setTimeout(resolve, FRAMES_READY_CAP_MS);
+      }),
+    ]).then(() => {
+      s.framesReady = true;
+    });
+
     const loop = (now: number) => {
-      if (s.t0 === null) s.t0 = now;
-      const t = (now - s.t0) / 1000;
+      if (s.framesReady && s.t0 === null) s.t0 = now;
+      const t = s.t0 === null ? 0 : (now - s.t0) / 1000;
       const scrollY = window.scrollY || 0;
 
       const moved = Math.abs(scrollY - s.lastScrollY);
@@ -292,6 +312,7 @@ export function useHeroExperience() {
 
     return () => {
       teardown();
+      window.clearTimeout(readyCapTimer);
       cancelAnimationFrame(s.rafId);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
