@@ -1,9 +1,9 @@
 // Calendly scheduling for the Book page.
 //
-// Paste Anthony's scheduling link here (e.g. "https://calendly.com/anthony-massage-works/session")
-// and the Book page swaps its placeholder for the live calendar. Leave it empty
-// until then.
-export const CALENDLY_URL = "";
+// Anthony's "Massage Session" event. The name and lengths are edited in
+// Calendly, but changing the "30min" part of the link there breaks this URL.
+// Empty it to bring back the Book page placeholder.
+export const CALENDLY_URL = "https://calendly.com/anthony_conscious/30min";
 
 // Calendly reads colour parameters from the embed URL, so the calendar sits in
 // the dark reading panel instead of as a white box. Hex values without "#",

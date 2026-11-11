@@ -617,13 +617,13 @@ export const BOOK_PAGE: InteriorPageData = {
   lead: {
     eyebrow: "Book",
     title: "Let’s find a time.",
-    paragraphs: ["Your session, on your schedule. Scheduling is on its way."],
+    paragraphs: ["Your session, on your schedule. Pick a time that works for you below."],
   },
   sections: [
     {
       id: "schedule",
       eyebrow: "Choose a Time",
-      title: "Your calendar, coming soon.",
+      title: "Pick a day and time.",
       blocks: [{ type: "schedule" }],
     },
     {
@@ -720,7 +720,7 @@ export const BOOK_PAGE: InteriorPageData = {
       ],
     },
   ],
-  footer: { sub: "Scheduling is on its way.", cta: "See scheduling", ctaHref: "#schedule" },
+  footer: { sub: "Pick a time that works for you.", cta: "Choose a time", ctaHref: "#schedule" },
 };
 export const INTERIOR_PAGES = [
   APPROACH_PAGE,
